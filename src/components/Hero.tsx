@@ -137,24 +137,6 @@ export function Hero() {
           <div className="text-white/55 text-xs tracking-[0.18em] uppercase">grupogaviriacano.com</div>
         </motion.div>
       </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.6 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 text-[11px] tracking-[0.3em] uppercase flex items-center gap-3"
-      >
-        <span className="block w-px h-8 bg-white/30">
-          <motion.span
-            initial={{ scaleY: 0 }}
-            animate={{ scaleY: 1 }}
-            transition={{ duration: 1.4, delay: 1.8, ease: "easeOut", repeat: Infinity, repeatType: "reverse" }}
-            style={{ originY: 0 }}
-            className="block w-px h-full bg-white"
-          />
-        </span>
-        <span>Scroll</span>
-      </motion.div>
     </section>
   );
 }
