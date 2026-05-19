@@ -126,11 +126,11 @@ export function Hero() {
         >
           <div className="relative w-full max-w-[280px]">
             <Image
-              src="/logo.png"
+              src="/logo-light.png"
               alt="Grupo Gaviria Cano"
-              width={400}
-              height={120}
-              className="w-full h-auto brightness-0 invert opacity-95"
+              width={642}
+              height={250}
+              className="w-full h-auto opacity-95"
               priority
             />
           </div>

@@ -69,11 +69,11 @@ export function Header() {
       <div className="container-x flex items-center justify-between gap-6">
         <Link href="#hero" className="flex items-center group" aria-label="Grupo Gaviria Cano">
           <Image
-            src="/logo.png"
+            src="/logo-light.png"
             alt="Grupo Gaviria Cano"
-            width={160}
-            height={40}
-            className="h-8 w-auto brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
+            width={320}
+            height={125}
+            className="h-8 w-auto opacity-90 group-hover:opacity-100 transition-opacity"
             priority
           />
         </Link>

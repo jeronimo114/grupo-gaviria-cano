@@ -70,11 +70,11 @@ export function Empresas() {
             <div className="absolute inset-0 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(60%_100%_at_0%_50%,rgba(46,125,233,0.08),transparent)]" />
             <div className="flex items-center justify-center md:justify-start">
               <Image
-                src="/logo.png"
+                src="/logo-color.png"
                 alt="Grupo Gaviria Cano"
-                width={260}
-                height={80}
-                className="w-full max-w-[220px] h-auto invert"
+                width={520}
+                height={200}
+                className="w-full max-w-[260px] h-auto"
               />
             </div>
             <div>

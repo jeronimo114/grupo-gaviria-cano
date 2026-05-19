@@ -16,11 +16,11 @@ export function Footer() {
             <div>
               <Link href="#hero" aria-label="Grupo Gaviria Cano" className="inline-block mb-6">
                 <Image
-                  src="/logo.png"
+                  src="/logo-light.png"
                   alt="Grupo Gaviria Cano"
-                  width={180}
-                  height={45}
-                  className="h-9 w-auto brightness-0 invert opacity-90"
+                  width={360}
+                  height={140}
+                  className="h-9 w-auto opacity-90"
                 />
               </Link>
               <p className="text-white/65 text-sm leading-relaxed max-w-[42ch]">{t("footer.brand")}</p>
