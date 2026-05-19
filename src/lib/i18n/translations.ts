@@ -51,7 +51,16 @@ export type TranslationKey =
   | "footer.brand" | "footer.companies" | "footer.group" | "footer.contactTitle"
   | "footer.writeUs" | "footer.offices" | "footer.openings" | "footer.press"
   | "footer.copyright" | "footer.policy"
-  | "form.success";
+  | "form.success"
+  | "policy.eyebrow" | "policy.title" | "policy.intro"
+  | "policy.sec1.title" | "policy.sec1.p1" | "policy.sec1.p2" | "policy.sec1.p3"
+  | "policy.sec2.title" | "policy.sec2.p1" | "policy.sec2.p2"
+  | "policy.sec3.title" | "policy.sec3.p1" | "policy.sec3.p2"
+  | "policy.sec4.title" | "policy.sec4.p1" | "policy.sec4.p2"
+  | "policy.lastUpdate"
+  | "policy.cta.title" | "policy.cta.desc" | "policy.cta.button"
+  | "policy.back"
+  | "careers.policyLink";
 
 export const TRANSLATIONS: Record<Lang, Record<TranslationKey, string>> = {
   es: {
@@ -239,6 +248,40 @@ export const TRANSLATIONS: Record<Lang, Record<TranslationKey, string>> = {
     "footer.policy": "Política de protección de datos",
 
     "form.success": "Gracias. Tu mensaje fue registrado y será reenviado al correo corporativo.",
+
+    "policy.eyebrow": "Marco legal · Empleo",
+    "policy.title": "Política de empleo y <em>tratamiento de información</em>.",
+    "policy.intro":
+      "Las siguientes disposiciones aplican a todo proceso de selección, vinculación y relación contractual con Grupo Gaviria Cano S.A.S. Te invitamos a leerlas con atención antes de postularte.",
+    "policy.sec1.title": "Sobre el proceso de selección",
+    "policy.sec1.p1":
+      "Grupo Gaviria Cano S.A.S no garantiza en ningún momento del proceso la escogencia de un candidato. Los resultados de cada caso son evaluados por un comité especial, quienes se encargan de seleccionar la persona adecuada.",
+    "policy.sec1.p2":
+      "A dicha persona se le comunica mediante un correo electrónico que ha sido escogida para el cargo, adjunto con las instrucciones a seguir.",
+    "policy.sec1.p3":
+      "La compañía se reserva el derecho de declarar desiertos los procesos cuando ninguno de los aspirantes cumpla con los criterios técnicos, profesionales o de afinidad cultural requeridos.",
+    "policy.sec2.title": "Sobre la información entregada",
+    "policy.sec2.p1":
+      "Cada persona debe garantizar y soportar que la información entregada es real y verificable. Documentos académicos, certificaciones laborales y referencias podrán ser contrastados con las entidades emisoras.",
+    "policy.sec2.p2":
+      "Cualquier alteración, falsificación u omisión deliberada de información será causal inmediata de exclusión del proceso y, en caso de haber sido contratado, de terminación unilateral del contrato.",
+    "policy.sec3.title": "Sobre la confidencialidad",
+    "policy.sec3.p1":
+      "Todo lo producido, modificado, creado y/o planeado, al igual que la información manejada dentro de la empresa, es de carácter confidencial y exclusivo. Su uso está restringido al manejo interno de la organización.",
+    "policy.sec3.p2":
+      "Si existe filtración de información que ha sido clasificada, Grupo Gaviria Cano S.A.S emprenderá las acciones legales correspondientes por violación a los términos del contrato, sin perjuicio de las sanciones disciplinarias y penales aplicables.",
+    "policy.sec4.title": "Tratamiento de datos personales",
+    "policy.sec4.p1":
+      "En cumplimiento de la Ley 1581 de 2012 y sus decretos reglamentarios, los datos personales recibidos en los procesos de selección serán tratados únicamente con fines de evaluación, contacto y, eventualmente, contratación. No serán compartidos con terceros sin consentimiento expreso.",
+    "policy.sec4.p2":
+      "Cualquier titular podrá ejercer en cualquier momento sus derechos de conocer, actualizar, rectificar o suprimir sus datos personales escribiendo a andres@grupogaviriacano.com.",
+    "policy.lastUpdate": "Última actualización: enero de 2026",
+    "policy.cta.title": "¿Tienes dudas?",
+    "policy.cta.desc":
+      "Si necesitas aclaraciones sobre esta política o el proceso de selección, escríbenos directamente.",
+    "policy.cta.button": "Contactar a recursos humanos",
+    "policy.back": "Volver al inicio",
+    "careers.policyLink": "Política y términos de empleo",
   },
   en: {
     "nav.about": "About",
@@ -425,5 +468,39 @@ export const TRANSLATIONS: Record<Lang, Record<TranslationKey, string>> = {
     "footer.policy": "Data protection policy",
 
     "form.success": "Thank you. Your message has been registered and forwarded to our team.",
+
+    "policy.eyebrow": "Legal framework · Careers",
+    "policy.title": "Employment policy and <em>information handling</em>.",
+    "policy.intro":
+      "The following provisions apply to every selection, hiring and contractual relationship with Grupo Gaviria Cano S.A.S. Please read them carefully before applying.",
+    "policy.sec1.title": "On the selection process",
+    "policy.sec1.p1":
+      "Grupo Gaviria Cano S.A.S does not guarantee the selection of any candidate at any point in the process. Each case is evaluated by a special committee responsible for selecting the appropriate person.",
+    "policy.sec1.p2":
+      "The selected person is notified via email of their selection for the position, along with the instructions to follow.",
+    "policy.sec1.p3":
+      "The company reserves the right to declare a search closed without a selection if no applicant meets the required technical, professional or cultural fit criteria.",
+    "policy.sec2.title": "On the information you provide",
+    "policy.sec2.p1":
+      "Each person must guarantee and support that the information provided is true and verifiable. Academic documents, employment certifications and references may be contrasted with the issuing entities.",
+    "policy.sec2.p2":
+      "Any alteration, falsification or deliberate omission will be immediate grounds for exclusion from the process and, if already hired, for unilateral termination of the contract.",
+    "policy.sec3.title": "On confidentiality",
+    "policy.sec3.p1":
+      "Everything produced, modified, created and/or planned, as well as information handled inside the company, is confidential and exclusive in nature. Its use is restricted to internal organizational handling.",
+    "policy.sec3.p2":
+      "Should there be a leak of classified information, Grupo Gaviria Cano S.A.S will pursue the corresponding legal actions for breach of contract, without prejudice to the applicable disciplinary and criminal sanctions.",
+    "policy.sec4.title": "Personal data treatment",
+    "policy.sec4.p1":
+      "In compliance with Colombian Law 1581 of 2012 and its regulatory decrees, personal data received during selection processes will be used solely for evaluation, contact and eventual hiring purposes. It will not be shared with third parties without express consent.",
+    "policy.sec4.p2":
+      "Data subjects may at any time exercise their rights to know, update, rectify or delete their personal information by writing to andres@grupogaviriacano.com.",
+    "policy.lastUpdate": "Last updated: January 2026",
+    "policy.cta.title": "Questions?",
+    "policy.cta.desc":
+      "If you need clarification on this policy or the selection process, please reach out directly.",
+    "policy.cta.button": "Contact human resources",
+    "policy.back": "Back to home",
+    "careers.policyLink": "Employment policy and terms",
   },
 };

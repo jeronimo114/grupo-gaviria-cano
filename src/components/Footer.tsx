@@ -41,10 +41,10 @@ export function Footer() {
             ]} />
 
             <FooterCol title={t("footer.contactTitle")} links={[
-              { href: "#contacto", label: t("footer.writeUs") },
-              { href: "#contacto", label: t("footer.offices") },
-              { href: "#empleo", label: t("footer.openings") },
-              { href: "#", label: t("footer.press") },
+              { href: "/#contacto", label: t("footer.writeUs") },
+              { href: "/#contacto", label: t("footer.offices") },
+              { href: "/#empleo", label: t("footer.openings") },
+              { href: "/politica", label: t("careers.policyLink") },
             ]} />
           </div>
         </Reveal>
@@ -62,7 +62,9 @@ export function Footer() {
               </svg>
             </a>
           </div>
-          <div>{t("footer.policy")}</div>
+          <Link href="/politica" className="hover:text-white transition-colors">
+            {t("footer.policy")}
+          </Link>
         </div>
       </div>
     </footer>

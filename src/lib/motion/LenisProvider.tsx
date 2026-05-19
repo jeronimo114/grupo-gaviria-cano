@@ -24,13 +24,22 @@ export function LenisProvider({ children }: { children: ReactNode }) {
     raf = requestAnimationFrame(tick);
 
     const onAnchorClick = (e: MouseEvent) => {
-      const target = (e.target as HTMLElement)?.closest("a[href^='#']");
+      const target = (e.target as HTMLElement)?.closest<HTMLAnchorElement>("a[href]");
       if (!target) return;
       const href = target.getAttribute("href");
-      if (!href || href === "#") return;
-      const el = document.querySelector(href);
+      if (!href) return;
+
+      // Only handle in-page anchors (#section or /#section while already on /)
+      const hashOnly = href.startsWith("#") && href.length > 1;
+      const isOnHomeWithAbsHash =
+        href.startsWith("/#") && href.length > 2 && window.location.pathname === "/";
+      if (!hashOnly && !isOnHomeWithAbsHash) return;
+
+      const selector = hashOnly ? href : href.slice(1);
+      const el = document.querySelector(selector);
       if (!el) return;
       e.preventDefault();
+      history.replaceState(null, "", selector);
       lenis.scrollTo(el as HTMLElement, { offset: -84, duration: 1.3 });
     };
     document.addEventListener("click", onAnchorClick);

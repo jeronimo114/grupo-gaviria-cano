@@ -1,15 +1,16 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "motion/react";
 import { Reveal, RevealStagger } from "@/components/ui/Reveal";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 import { RichText } from "@/lib/i18n/RichText";
 import type { TranslationKey } from "@/lib/i18n/translations";
 
-const ACTIONS: { title: TranslationKey; sub: TranslationKey }[] = [
-  { title: "careers.1.title", sub: "careers.1.sub" },
-  { title: "careers.2.title", sub: "careers.2.sub" },
-  { title: "careers.3.title", sub: "careers.3.sub" },
+const ACTIONS: { title: TranslationKey; sub: TranslationKey; href: string }[] = [
+  { title: "careers.1.title", sub: "careers.1.sub", href: "#contacto" },
+  { title: "careers.2.title", sub: "careers.2.sub", href: "#contacto" },
+  { title: "careers.3.title", sub: "careers.3.sub", href: "#contacto" },
 ];
 
 export function Empleo() {
@@ -46,27 +47,38 @@ export function Empleo() {
               <p className="text-white/75 text-[15px] leading-relaxed max-w-[52ch]">{t("careers.desc")}</p>
             </div>
 
-            <RevealStagger className="flex flex-col gap-3 w-full" stagger={0.1}>
-              {ACTIONS.map((a, i) => (
-                <motion.a
-                  key={i}
-                  href="#"
-                  variants={{
-                    hidden: { opacity: 0, x: 20 },
-                    visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
-                  }}
-                  whileHover={{ x: 4 }}
-                  transition={{ duration: 0.3 }}
-                  className="group flex items-center justify-between gap-6 p-5 md:p-6 rounded-2xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] hover:border-white/20 transition-colors"
+            <div className="flex flex-col gap-3 w-full">
+              <RevealStagger className="flex flex-col gap-3" stagger={0.1}>
+                {ACTIONS.map((a, i) => (
+                  <motion.a
+                    key={i}
+                    href={a.href}
+                    variants={{
+                      hidden: { opacity: 0, x: 20 },
+                      visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+                    }}
+                    whileHover={{ x: 4 }}
+                    transition={{ duration: 0.3 }}
+                    className="group flex items-center justify-between gap-6 p-5 md:p-6 rounded-2xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] hover:border-white/20 transition-colors"
+                  >
+                    <div>
+                      <div className="font-serif text-white text-[18px] leading-tight">{t(a.title)}</div>
+                      <div className="text-white/55 text-xs mt-1">{t(a.sub)}</div>
+                    </div>
+                    <span aria-hidden className="text-2xl text-white/60 group-hover:text-white transition-all duration-300 group-hover:translate-x-1.5">→</span>
+                  </motion.a>
+                ))}
+              </RevealStagger>
+              <Reveal direction="up" delay={0.35}>
+                <Link
+                  href="/politica"
+                  className="group inline-flex items-center gap-2 mt-2 text-[11px] uppercase tracking-[0.18em] font-semibold text-blue-line hover:text-white transition-colors"
                 >
-                  <div>
-                    <div className="font-serif text-white text-[18px] leading-tight">{t(a.title)}</div>
-                    <div className="text-white/55 text-xs mt-1">{t(a.sub)}</div>
-                  </div>
-                  <span aria-hidden className="text-2xl text-white/60 group-hover:text-white transition-all duration-300 group-hover:translate-x-1.5">→</span>
-                </motion.a>
-              ))}
-            </RevealStagger>
+                  <span>{t("careers.policyLink")}</span>
+                  <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </Link>
+              </Reveal>
+            </div>
           </article>
         </Reveal>
       </div>
