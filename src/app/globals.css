@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 @theme {
+  --color-white: #ffffff;
+  --color-black: #000000;
   --color-navy: #0a2540;
   --color-navy-deep: #061a30;
   --color-navy-mid: #143963;
@@ -58,46 +60,48 @@ html.lenis body {
   overflow: clip;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  color: var(--color-navy);
-  letter-spacing: -0.01em;
-}
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    color: var(--color-navy);
+    letter-spacing: -0.01em;
+  }
 
-h1 {
-  line-height: 1.08;
-  letter-spacing: -0.02em;
-}
-h2 {
-  line-height: 1.14;
-  letter-spacing: -0.015em;
-}
-h3 {
-  line-height: 1.22;
-}
+  h1 {
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+  h2 {
+    line-height: 1.14;
+    letter-spacing: -0.015em;
+  }
+  h3 {
+    line-height: 1.22;
+  }
 
-em {
-  font-style: italic;
-  color: var(--color-navy-light);
-}
+  em {
+    font-style: italic;
+    color: var(--color-navy-light);
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-button {
-  font: inherit;
-  cursor: pointer;
-  background: transparent;
-  border: 0;
-  color: inherit;
+  button {
+    font: inherit;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    color: inherit;
+  }
 }
 
 img,

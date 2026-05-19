@@ -9,11 +9,11 @@ import { ColombiaFlag, UsaFlag } from "@/components/icons/Flags";
 import type { Lang } from "@/lib/i18n/translations";
 
 const NAV_LINKS: { id: string; key: "nav.about" | "nav.companies" | "nav.values" | "nav.news" | "nav.careers" }[] = [
-  { id: "#nosotros", key: "nav.about" },
-  { id: "#empresas", key: "nav.companies" },
-  { id: "#valores", key: "nav.values" },
-  { id: "#noticias", key: "nav.news" },
-  { id: "#empleo", key: "nav.careers" },
+  { id: "/#nosotros", key: "nav.about" },
+  { id: "/#empresas", key: "nav.companies" },
+  { id: "/#valores", key: "nav.values" },
+  { id: "/#noticias", key: "nav.news" },
+  { id: "/#empleo", key: "nav.careers" },
 ];
 
 export function Header() {
@@ -59,15 +59,15 @@ export function Header() {
         paddingTop: reduce ? undefined : padY,
         paddingBottom: reduce ? undefined : padY,
       }}
-      className={`fixed inset-x-0 top-0 z-50 transition-[backdrop-filter,background-color] duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-[backdrop-filter,background-color,box-shadow] duration-300 ${
         scrolled
-          ? "backdrop-blur-lg bg-[#0a2540]/80 border-b border-white/10"
-          : "bg-[#0a2540]/40 backdrop-blur-sm"
+          ? "backdrop-blur-xl bg-[#061a30]/92 border-b border-white/15 shadow-[0_6px_24px_rgba(0,0,0,0.35)]"
+          : "bg-gradient-to-b from-[#061a30]/85 to-[#061a30]/55 backdrop-blur-md"
       }`}
     >
-      <motion.div style={{ opacity: bgOpacity }} className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(10,37,64,0.95),rgba(10,37,64,0.85))]" />
+      <motion.div style={{ opacity: bgOpacity }} className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#061a30_0%,rgba(6,26,48,0.92)_100%)]" />
       <div className="container-x flex items-center justify-between gap-6">
-        <Link href="#hero" className="flex items-center group" aria-label="Grupo Gaviria Cano">
+        <Link href="/" className="flex items-center group" aria-label="Grupo Gaviria Cano">
           <Image
             src="/logo-light.png"
             alt="Grupo Gaviria Cano"
@@ -83,7 +83,7 @@ export function Header() {
             <Link
               key={l.id}
               href={l.id}
-              className="relative text-white/75 hover:text-white transition-colors py-2 group"
+              className="relative text-white/95 hover:text-white transition-colors py-2 group drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
             >
               <span>{t(l.key)}</span>
               <span className="absolute left-0 right-0 -bottom-0.5 h-px bg-white origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
@@ -148,7 +148,7 @@ export function Header() {
           </div>
 
           <Link
-            href="#contacto"
+            href="/#contacto"
             className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-navy text-xs font-semibold uppercase tracking-wider hover:bg-paper-warm transition-colors"
           >
             {t("nav.contact")}
