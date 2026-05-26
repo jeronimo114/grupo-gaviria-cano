@@ -23,7 +23,7 @@ export function PolicyContent() {
   return (
     <section className="bg-white">
       <div className="container-x py-20 md:py-28">
-        <div className="grid lg:grid-cols-[260px_1fr] gap-12 lg:gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-12 lg:gap-20">
           <aside className="lg:sticky lg:top-32 lg:self-start">
             <RevealStagger className="flex flex-col gap-2" stagger={0.06}>
               {SECTIONS.map((s) => (

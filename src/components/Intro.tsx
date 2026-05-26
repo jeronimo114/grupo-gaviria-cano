@@ -11,7 +11,7 @@ export function Intro() {
   return (
     <section id="nosotros" className="bg-white">
       <div className="container-x py-24 md:py-36">
-        <div className="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
           <Reveal direction="up">
             <div className="eyebrow text-navy-light sticky top-32">{t("intro.label")}</div>
           </Reveal>

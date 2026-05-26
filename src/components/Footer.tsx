@@ -12,7 +12,7 @@ export function Footer() {
     <footer className="bg-navy-deep text-white/85">
       <div className="container-x py-16 md:py-20">
         <Reveal direction="up">
-          <div className="grid md:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10 md:gap-14 pb-14 border-b border-white/10">
+          <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10 md:gap-14 pb-14 border-b border-white/10">
             <div>
               <Link href="#hero" aria-label="Grupo Gaviria Cano" className="inline-block mb-6">
                 <Image
@@ -27,10 +27,10 @@ export function Footer() {
             </div>
 
             <FooterCol title={t("footer.companies")} links={[
-              { href: "#empresas", label: "360 Colombia" },
-              { href: "#empresas", label: "CC Media Agency" },
-              { href: "#empresas", label: "SDL Consulting" },
-              { href: "#empresas", label: "LEAD Advisors" },
+              { href: "https://360radio.com.co/", label: "360 Radio", external: true },
+              { href: "/empresas/cc", label: "CC Media Agency" },
+              { href: "/empresas/sdl", label: "SDL Consulting" },
+              { href: "/empresas/lead", label: "LEAD Advisors" },
             ]} />
 
             <FooterCol title={t("footer.group")} links={[
@@ -53,7 +53,9 @@ export function Footer() {
           <div>{t("footer.copyright")}</div>
           <div className="flex items-center gap-4">
             <a
-              href="#"
+              href="https://www.linkedin.com/company/grupo-gaviria-cano-sas/"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="LinkedIn"
               className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center hover:bg-white hover:text-navy transition-colors"
             >
@@ -71,22 +73,40 @@ export function Footer() {
   );
 }
 
-function FooterCol({ title, links }: { title: string; links: { href: string; label: string }[] }) {
+function FooterCol({
+  title,
+  links,
+}: {
+  title: string;
+  links: { href: string; label: string; external?: boolean }[];
+}) {
   return (
     <div>
       <h4 className="font-serif text-white text-[15px] mb-4">{title}</h4>
       <ul className="space-y-2.5">
-        {links.map((l, i) => (
-          <li key={i}>
-            <Link
-              href={l.href}
-              className="group inline-flex items-center text-sm text-white/65 hover:text-white transition-colors"
-            >
+        {links.map((l, i) => {
+          const className =
+            "group inline-flex items-center text-sm text-white/65 hover:text-white transition-colors";
+          const inner = (
+            <>
               <span>{l.label}</span>
               <span aria-hidden className="ml-1 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-xs">→</span>
-            </Link>
-          </li>
-        ))}
+            </>
+          );
+          return (
+            <li key={i}>
+              {l.external ? (
+                <a href={l.href} target="_blank" rel="noopener noreferrer" className={className}>
+                  {inner}
+                </a>
+              ) : (
+                <Link href={l.href} className={className}>
+                  {inner}
+                </Link>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

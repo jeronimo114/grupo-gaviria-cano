@@ -1,38 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
-const LOGOS: { id: string; label: string; render: () => React.ReactNode }[] = [
-  {
-    id: "360",
-    label: "360 Colombia",
-    render: () => <span className="font-serif italic text-[1.9rem] tracking-tight">360</span>,
-  },
-  {
-    id: "cc",
-    label: "CC Media Agency",
-    render: () => (
-      <span className="flex items-center gap-2">
-        <span className="w-9 h-9 rounded-full border-[1.5px] border-current flex items-center justify-center font-semibold text-[15px] tracking-tight">CC</span>
-        <span className="text-[10px] tracking-[0.22em] font-medium">MEDIA AGENCY</span>
-      </span>
-    ),
-  },
-  {
-    id: "sdl",
-    label: "SDL Consulting",
-    render: () => (
-      <span className="font-semibold text-[1.5rem] tracking-[0.06em]">SDL</span>
-    ),
-  },
-  {
-    id: "lead",
-    label: "LEAD Advisors",
-    render: () => (
-      <span className="font-semibold text-[1.5rem] tracking-[0.12em]">L≡AD</span>
-    ),
-  },
+const LOGOS: { id: string; label: string; src: string; w: number; h: number }[] = [
+  { id: "360", label: "360 Radio", src: "/companies/360.png", w: 360, h: 192 },
+  { id: "cc", label: "CC Media Agency", src: "/companies/cc.png", w: 360, h: 192 },
+  { id: "sdl", label: "SDL Consulting", src: "/companies/sdl.png", w: 360, h: 192 },
+  { id: "lead", label: "LEAD Advisors", src: "/companies/lead.png", w: 360, h: 192 },
 ];
 
 export function CompaniesBanner() {
@@ -64,9 +40,15 @@ export function CompaniesBanner() {
               <a
                 href="#empresas"
                 aria-label={logo.label}
-                className="group inline-flex items-center text-navy/80 hover:text-navy transition-all duration-300 hover:scale-[1.06] origin-center"
+                className="group inline-flex items-center transition-transform duration-300 hover:scale-[1.06] origin-center"
               >
-                {logo.render()}
+                <Image
+                  src={logo.src}
+                  alt={logo.label}
+                  width={logo.w}
+                  height={logo.h}
+                  className="h-9 w-auto object-contain opacity-60 grayscale transition-[filter,opacity] duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+                />
               </a>
             </motion.li>
           ))}

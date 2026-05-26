@@ -26,7 +26,7 @@ export function Audiences() {
           </h2>
         </Reveal>
 
-        <RevealStagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-border-soft" stagger={0.1}>
+        <RevealStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-border-soft" stagger={0.1}>
           {CELLS.map((c, i) => (
             <motion.div
               key={i}

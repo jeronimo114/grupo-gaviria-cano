@@ -56,7 +56,7 @@ export function Compromisos() {
             <div className="absolute -top-12 -right-12 w-72 h-72 opacity-[0.06] pointer-events-none">
               <ColombiaFlag className="w-full h-full" />
             </div>
-            <div className="grid lg:grid-cols-[auto_1fr] gap-8 lg:gap-12 items-start max-w-[80ch]">
+            <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-8 lg:gap-12 items-start max-w-[80ch]">
               <motion.div
                 initial={{ scale: 0.6, opacity: 0, rotate: -8 }}
                 whileInView={{ scale: 1, opacity: 1, rotate: 0 }}
@@ -77,7 +77,7 @@ export function Compromisos() {
           </article>
         </Reveal>
 
-        <RevealStagger className="grid md:grid-cols-3 gap-5" stagger={0.1}>
+        <RevealStagger className="grid grid-cols-1 md:grid-cols-3 gap-5" stagger={0.1}>
           {FEATURES.map((f, i) => (
             <motion.article
               key={i}

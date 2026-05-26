@@ -19,6 +19,7 @@ const NAV_LINKS: { id: string; key: "nav.about" | "nav.companies" | "nav.values"
 export function Header() {
   const { lang, setLang, labels, t } = useLanguage();
   const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
@@ -153,8 +154,73 @@ export function Header() {
           >
             {t("nav.contact")}
           </Link>
+
+          <button
+            type="button"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label="Menu"
+            aria-expanded={menuOpen}
+            className="lg:hidden flex items-center justify-center w-10 h-10 rounded-full border border-white/15 hover:border-white/30 transition-colors text-white"
+          >
+            <motion.span
+              animate={{ rotate: menuOpen ? 90 : 0 }}
+              transition={{ duration: 0.25 }}
+              className="block"
+            >
+              {menuOpen ? (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M6 6l12 12M6 18L18 6"/></svg>
+              ) : (
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+              )}
+            </motion.span>
+          </button>
         </div>
       </div>
+
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="lg:hidden absolute inset-x-0 top-full bg-[#061a30] border-t border-white/10 shadow-[0_24px_60px_rgba(0,0,0,0.4)]"
+          >
+            <nav className="container-x py-6 flex flex-col gap-1">
+              {NAV_LINKS.map((l, i) => (
+                <motion.div
+                  key={l.id}
+                  initial={reduce ? false : { opacity: 0, x: -8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.25, delay: 0.04 * i }}
+                >
+                  <Link
+                    href={l.id}
+                    onClick={() => setMenuOpen(false)}
+                    className="block py-3 px-2 text-white/90 hover:text-white text-base font-medium border-b border-white/10 hover:bg-white/5 transition-colors"
+                  >
+                    {t(l.key)}
+                  </Link>
+                </motion.div>
+              ))}
+              <motion.div
+                initial={reduce ? false : { opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.04 * NAV_LINKS.length }}
+                className="pt-4"
+              >
+                <Link
+                  href="/#contacto"
+                  onClick={() => setMenuOpen(false)}
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white text-navy text-sm font-semibold uppercase tracking-wider hover:bg-paper-warm transition-colors"
+                >
+                  {t("nav.contact")}
+                </Link>
+              </motion.div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }

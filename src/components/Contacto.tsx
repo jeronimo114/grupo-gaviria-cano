@@ -32,8 +32,8 @@ const DIRECT: { key: TranslationKey; value: string; href: string; icon: React.Re
   },
   {
     key: "contact.direct.linkedin",
-    value: "/grupo-gaviria-cano",
-    href: "#",
+    value: "/company/grupo-gaviria-cano-sas",
+    href: "https://www.linkedin.com/company/grupo-gaviria-cano-sas/",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
         <path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19a.66.66 0 0 0 0 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z" />
@@ -78,11 +78,14 @@ export function Contacto() {
           <p className="text-text/75 text-[clamp(15px,1.1vw,17px)] leading-relaxed">{t("contact.desc")}</p>
         </Reveal>
 
-        <RevealStagger className="grid md:grid-cols-3 gap-4 mb-12" stagger={0.08}>
+        <RevealStagger className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12" stagger={0.08}>
           {DIRECT.map((d, i) => (
             <motion.a
               key={i}
               href={d.href}
+              {...(d.href.startsWith("http")
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
               variants={{
                 hidden: { opacity: 0, y: 18 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
@@ -103,7 +106,7 @@ export function Contacto() {
           ))}
         </RevealStagger>
 
-        <div className="grid lg:grid-cols-[1.4fr_1fr] gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-8 lg:gap-12">
           <Reveal direction="up">
             <div className="bg-white rounded-3xl border border-border-soft p-8 md:p-12 shadow-[var(--shadow-sm-soft)]">
               <div className="mb-7">
@@ -120,11 +123,11 @@ export function Contacto() {
                   (e.target as HTMLFormElement).reset();
                 }}
               >
-                <div className="grid sm:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <Field id="nombre" label={t("contact.name")} required />
                   <Field id="empresa" label={`${t("contact.company")} ${t("contact.optional")}`} />
                 </div>
-                <div className="grid sm:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <Field id="correo" type="email" label={t("contact.email")} required />
                   <SelectField id="motivo" label={t("contact.reason")}>
                     {REASONS.map((r) => (

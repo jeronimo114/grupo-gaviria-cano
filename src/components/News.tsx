@@ -79,7 +79,9 @@ export function News() {
             </h2>
           </div>
           <a
-            href="#"
+            href="https://grupogaviriacano.com/blog/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] font-semibold text-navy border-b-[1.5px] border-navy pb-1.5"
           >
             <span>{t("news.viewAll")}</span>
@@ -87,7 +89,7 @@ export function News() {
           </a>
         </Reveal>
 
-        <RevealStagger className="grid md:grid-cols-3 gap-6" stagger={0.1}>
+        <RevealStagger className="grid grid-cols-1 md:grid-cols-3 gap-6" stagger={0.1}>
           {ARTICLES.map((a, i) => (
             <motion.article
               key={i}

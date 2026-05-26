@@ -16,6 +16,11 @@ export type TranslationKey =
   | "empresas.cc.tag" | "empresas.cc.desc"
   | "empresas.sdl.tag" | "empresas.sdl.desc"
   | "empresas.lead.tag" | "empresas.lead.desc"
+  | "empresas.subpage.back" | "empresas.subpage.about"
+  | "empresas.subpage.cta.title" | "empresas.subpage.cta.desc" | "empresas.subpage.cta.button"
+  | "empresas.cc.subpage.intro" | "empresas.cc.subpage.body1" | "empresas.cc.subpage.body2"
+  | "empresas.sdl.subpage.intro" | "empresas.sdl.subpage.body1" | "empresas.sdl.subpage.body2"
+  | "empresas.lead.subpage.intro" | "empresas.lead.subpage.body1" | "empresas.lead.subpage.body2"
   | "audience.eyebrow" | "audience.title"
   | "audience.1.title" | "audience.1.desc"
   | "audience.2.title" | "audience.2.desc"
@@ -119,6 +124,34 @@ export const TRANSLATIONS: Record<Lang, Record<TranslationKey, string>> = {
     "empresas.lead.tag": "Asesoría",
     "empresas.lead.desc":
       "Asesoría a alta dirección de empresas privadas y entidades de gobierno. Especializados en estrategia, vocería ejecutiva y preparación de líderes.",
+
+    "empresas.subpage.back": "Volver al grupo",
+    "empresas.subpage.about": "Sobre la empresa",
+    "empresas.subpage.cta.title": "¿Hablamos?",
+    "empresas.subpage.cta.desc":
+      "Cuéntanos sobre tu proyecto. Te respondemos en menos de 24 horas hábiles.",
+    "empresas.subpage.cta.button": "Escríbenos",
+
+    "empresas.cc.subpage.intro":
+      "CC Media Agency es la firma de comunicaciones estratégicas y relaciones públicas del Grupo Gaviria Cano. Diseñamos campañas que conectan a las marcas con las audiencias que realmente importan.",
+    "empresas.cc.subpage.body1":
+      "Acompañamos a empresas, líderes y entidades de gobierno en la construcción de narrativas que sostengan reputación, generen confianza y posicionen propósito en el tiempo. Cada estrategia parte de investigación rigurosa y se ejecuta con disciplina editorial.",
+    "empresas.cc.subpage.body2":
+      "Nuestro enfoque integra planeación de mensajes, gestión de medios, preparación de voceros, posicionamiento de marca y manejo de crisis, todo bajo un marco ético, medible y orientado a resultados.",
+
+    "empresas.sdl.subpage.intro":
+      "SDL Consulting es la firma del Grupo Gaviria Cano enfocada en planificación urbana, infraestructura y desarrollo de territorio.",
+    "empresas.sdl.subpage.body1":
+      "Las ciudades crecen aceleradamente y todos los desarrollos requieren visión de largo plazo. SDL diagnostica y plantea soluciones a problemáticas de infraestructura, movilidad y aprovechamiento eficiente del territorio, siendo proactiva en crear ambientes más amigables para las personas.",
+    "empresas.sdl.subpage.body2":
+      "La competitividad y productividad deben ser prioridad para cualquier ciudad, departamento o nación. SDL replica casos de éxito internacionales, adaptándolos a la realidad de cada escenario con sensibilidad local y rigor técnico.",
+
+    "empresas.lead.subpage.intro":
+      "LEAD Advisors es la firma de asesoría a alta dirección del Grupo Gaviria Cano. Ayudamos a líderes públicos y privados a tomar mejores decisiones bajo presión.",
+    "empresas.lead.subpage.body1":
+      "La administración pública y la privada necesitan hoy estructuras sincronizadas y productivas para responder a problemáticas que exigen soluciones de avanzada y largo plazo. Acompañamos a nuestros clientes con las herramientas necesarias para mejorar estructuras laborales, procedimientos e implementación de decisiones.",
+    "empresas.lead.subpage.body2":
+      "Somos aliados en la focalización de problemas prioritarios y sus posibles soluciones. Asesoramos temas de seguridad, productividad, empleo y gestión administrativa, con amplia trayectoria en el sector.",
 
     "audience.eyebrow": "A quién servimos",
     "audience.title": "Trabajamos con <em>quienes mueven</em> al país.",
@@ -230,7 +263,7 @@ export const TRANSLATIONS: Record<Lang, Record<TranslationKey, string>> = {
     "contact.hours.value": "Lunes a viernes · 8:00 am – 6:00 pm (COT)",
     "office.medellin.city": "Medellín, Colombia",
     "office.medellin.role": "Casa matriz",
-    "office.medellin.address": "Carrera 43A #16A Sur 38<br>Edificio DHL · Oficina 708",
+    "office.medellin.address": "Carrera 43A #16A Sur 38<br>Edificio DHL · Oficina 1106",
     "office.doral.city": "Doral, Florida",
     "office.doral.role": "Operación internacional",
     "office.doral.address": "7801 NW 37th Street<br>Doral, FL 33195-6503",
@@ -341,6 +374,34 @@ export const TRANSLATIONS: Record<Lang, Record<TranslationKey, string>> = {
     "empresas.lead.desc":
       "Advisory to senior management of private companies and government entities. Specialized in strategy, executive spokespersonship and leader preparation.",
 
+    "empresas.subpage.back": "Back to the group",
+    "empresas.subpage.about": "About",
+    "empresas.subpage.cta.title": "Let's talk",
+    "empresas.subpage.cta.desc":
+      "Tell us about your project. We respond within 24 business hours.",
+    "empresas.subpage.cta.button": "Get in touch",
+
+    "empresas.cc.subpage.intro":
+      "CC Media Agency is Grupo Gaviria Cano's strategic communications and public relations firm. We design campaigns that connect brands with the audiences that truly matter.",
+    "empresas.cc.subpage.body1":
+      "We support companies, leaders and government entities in building narratives that sustain reputation, generate trust and position purpose over time. Every strategy is grounded in rigorous research and executed with editorial discipline.",
+    "empresas.cc.subpage.body2":
+      "Our approach integrates message planning, media management, spokesperson training, brand positioning and crisis management, all within an ethical, measurable and results-driven framework.",
+
+    "empresas.sdl.subpage.intro":
+      "SDL Consulting is Grupo Gaviria Cano's firm focused on urban planning, infrastructure and territorial development.",
+    "empresas.sdl.subpage.body1":
+      "Cities are growing rapidly and every development requires long-term vision. SDL diagnoses and proposes solutions to infrastructure, mobility and efficient land use challenges, proactively creating more people-friendly environments.",
+    "empresas.sdl.subpage.body2":
+      "Competitiveness and productivity must be a priority for any city, department or nation. SDL replicates international success stories, adapting them to the realities of each context with local sensitivity and technical rigor.",
+
+    "empresas.lead.subpage.intro":
+      "LEAD Advisors is Grupo Gaviria Cano's executive advisory firm. We help public and private leaders make better decisions under pressure.",
+    "empresas.lead.subpage.body1":
+      "Public and private administration today need synchronized, productive structures to address challenges that demand advanced, long-term solutions. We provide our clients with the tools needed to improve workforce structures, procedures and decision implementation.",
+    "empresas.lead.subpage.body2":
+      "We are allies in focusing on priority issues and their possible solutions. We advise on security, productivity, employment and administrative management, with extensive experience in the sector.",
+
     "audience.eyebrow": "Who we serve",
     "audience.title": "We work with <em>those who move</em> the country.",
     "audience.1.title": "Shareholders",
@@ -450,7 +511,7 @@ export const TRANSLATIONS: Record<Lang, Record<TranslationKey, string>> = {
     "contact.hours.value": "Monday to Friday · 8:00 am – 6:00 pm (COT)",
     "office.medellin.city": "Medellín, Colombia",
     "office.medellin.role": "Headquarters",
-    "office.medellin.address": "Carrera 43A #16A Sur 38<br>DHL Building · Suite 708",
+    "office.medellin.address": "Carrera 43A #16A Sur 38<br>DHL Building · Suite 1106",
     "office.doral.city": "Doral, Florida",
     "office.doral.role": "International operations",
     "office.doral.address": "7801 NW 37th Street<br>Doral, FL 33195-6503",

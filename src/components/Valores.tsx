@@ -52,7 +52,7 @@ export function Valores() {
           </h2>
         </Reveal>
 
-        <RevealStagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10" stagger={0.1}>
+        <RevealStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10" stagger={0.1}>
           {VALORES.map((v, i) => (
             <motion.div
               key={i}
