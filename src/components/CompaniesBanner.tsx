@@ -47,7 +47,7 @@ export function CompaniesBanner() {
                   alt={logo.label}
                   width={logo.w}
                   height={logo.h}
-                  className="h-9 w-auto object-contain opacity-60 grayscale transition-[filter,opacity] duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+                  className="h-12 md:h-14 w-auto object-contain opacity-70 grayscale transition-[filter,opacity] duration-300 group-hover:opacity-100 group-hover:grayscale-0"
                 />
               </a>
             </motion.li>
