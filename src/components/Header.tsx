@@ -72,9 +72,9 @@ export function Header() {
           <Image
             src="/logo-light.png"
             alt="Grupo Gaviria Cano"
-            width={320}
-            height={125}
-            className="h-8 w-auto opacity-90 group-hover:opacity-100 transition-opacity"
+            width={400}
+            height={156}
+            className="h-10 md:h-12 w-auto opacity-95 group-hover:opacity-100 transition-opacity"
             priority
           />
         </Link>
