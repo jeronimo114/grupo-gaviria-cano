@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
 const LOGOS: { id: string; label: string; src: string; w: number; h: number }[] = [
-  { id: "360", label: "360 Radio", src: "/companies/360.png", w: 1524, h: 802 },
+  { id: "360", label: "360 Radio", src: "/companies/360.png", w: 1081, h: 370 },
   { id: "cc", label: "CC Media Agency", src: "/companies/cc.png", w: 360, h: 192 },
   { id: "sdl", label: "SDL Consulting", src: "/companies/sdl.png", w: 360, h: 192 },
   { id: "lead", label: "LEAD Advisors", src: "/companies/lead.png", w: 360, h: 192 },
