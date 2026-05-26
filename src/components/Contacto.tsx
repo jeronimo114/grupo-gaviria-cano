@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 import { Reveal, RevealStagger } from "@/components/ui/Reveal";
 import { ColombiaFlag, UsaFlag } from "@/components/icons/Flags";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
@@ -42,13 +41,8 @@ const DIRECT: { key: TranslationKey; value: string; href: string; icon: React.Re
   },
 ];
 
-const REASONS: TranslationKey[] = [
-  "contact.opt1", "contact.opt2", "contact.opt3", "contact.opt4", "contact.opt5", "contact.opt6", "contact.opt7",
-];
-
 export function Contacto() {
   const { t } = useLanguage();
-  const [sent, setSent] = useState(false);
 
   return (
     <section id="contacto" className="relative bg-paper text-text overflow-hidden isolate">
@@ -78,7 +72,7 @@ export function Contacto() {
           <p className="text-text/75 text-[clamp(15px,1.1vw,17px)] leading-relaxed">{t("contact.desc")}</p>
         </Reveal>
 
-        <RevealStagger className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12" stagger={0.08}>
+        <RevealStagger className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-14" stagger={0.08}>
           {DIRECT.map((d, i) => (
             <motion.a
               key={i}
@@ -106,152 +100,38 @@ export function Contacto() {
           ))}
         </RevealStagger>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-8 lg:gap-12">
-          <Reveal direction="up">
-            <div className="bg-white rounded-3xl border border-border-soft p-8 md:p-12 shadow-[var(--shadow-sm-soft)]">
-              <div className="mb-7">
-                <h3 className="font-serif text-navy text-[26px] mb-2">{t("contact.form.title")}</h3>
-                <p className="text-sm text-text/70">{t("contact.form.sub")}</p>
-              </div>
+        <Reveal direction="up" delay={0.1}>
+          <h3 className="font-serif text-navy text-[clamp(22px,2.2vw,30px)] mb-6">
+            {t("contact.offices.title")}
+          </h3>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+            <OfficeCard
+              href="https://maps.google.com/?q=Carrera+43A+16A+Sur+38+Medellin"
+              flag={<ColombiaFlag className="w-full h-full" />}
+              city={t("office.medellin.city")}
+              role={t("office.medellin.role")}
+              addressKey={t("office.medellin.address")}
+              phone="+57 305 228 7176"
+            />
+            <OfficeCard
+              href="https://maps.google.com/?q=7801+NW+37th+Street+Doral+FL"
+              flag={<UsaFlag className="w-full h-full" />}
+              city={t("office.doral.city")}
+              role={t("office.doral.role")}
+              addressKey={t("office.doral.address")}
+              phone="(305) 592 0839"
+            />
+          </div>
 
-              <form
-                className="space-y-5"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setSent(true);
-                  setTimeout(() => setSent(false), 6000);
-                  (e.target as HTMLFormElement).reset();
-                }}
-              >
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <Field id="nombre" label={t("contact.name")} required />
-                  <Field id="empresa" label={`${t("contact.company")} ${t("contact.optional")}`} />
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <Field id="correo" type="email" label={t("contact.email")} required />
-                  <SelectField id="motivo" label={t("contact.reason")}>
-                    {REASONS.map((r) => (
-                      <option key={r}>{t(r)}</option>
-                    ))}
-                  </SelectField>
-                </div>
-                <Field id="mensaje" label={t("contact.message")} as="textarea" required />
-
-                <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
-                  <button
-                    type="submit"
-                    className="group inline-flex items-center gap-2 bg-navy text-white px-7 py-3.5 rounded-full font-semibold text-sm tracking-wide hover:bg-navy-mid transition-colors"
-                  >
-                    <span>{t("contact.send")}</span>
-                    <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
-                  </button>
-                  <p className="text-xs text-muted max-w-[40ch] leading-snug">{t("contact.disclaimer")}</p>
-                </div>
-
-                <AnimatePresence>
-                  {sent && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -6 }}
-                      transition={{ duration: 0.3 }}
-                      role="status"
-                      className="rounded-xl bg-paper p-4 text-sm text-navy border border-border-soft"
-                    >
-                      {t("form.success")}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </form>
+          <div className="bg-white rounded-2xl border border-border-soft p-5 max-w-md">
+            <div className="text-[10px] uppercase tracking-[0.22em] font-semibold text-muted mb-1">
+              {t("contact.hours.label")}
             </div>
-          </Reveal>
-
-          <Reveal direction="up" delay={0.1}>
-            <aside className="space-y-4">
-              <h3 className="font-serif text-navy text-[22px] mb-3">{t("contact.offices.title")}</h3>
-
-              <OfficeCard
-                href="https://maps.google.com/?q=Carrera+43A+16A+Sur+38+Medellin"
-                flag={<ColombiaFlag className="w-full h-full" />}
-                city={t("office.medellin.city")}
-                role={t("office.medellin.role")}
-                addressKey={t("office.medellin.address")}
-                phone="+57 305 228 7176"
-              />
-              <OfficeCard
-                href="https://maps.google.com/?q=7801+NW+37th+Street+Doral+FL"
-                flag={<UsaFlag className="w-full h-full" />}
-                city={t("office.doral.city")}
-                role={t("office.doral.role")}
-                addressKey={t("office.doral.address")}
-                phone="(305) 592 0839"
-              />
-
-              <div className="bg-white rounded-2xl border border-border-soft p-5">
-                <div className="text-[10px] uppercase tracking-[0.22em] font-semibold text-muted mb-1">
-                  {t("contact.hours.label")}
-                </div>
-                <div className="text-navy text-sm font-medium">{t("contact.hours.value")}</div>
-              </div>
-            </aside>
-          </Reveal>
-        </div>
+            <div className="text-navy text-sm font-medium">{t("contact.hours.value")}</div>
+          </div>
+        </Reveal>
       </div>
     </section>
-  );
-}
-
-function Field({
-  id,
-  label,
-  type = "text",
-  required,
-  as,
-}: {
-  id: string;
-  label: string;
-  type?: string;
-  required?: boolean;
-  as?: "textarea";
-}) {
-  const className =
-    "peer w-full bg-paper-warm border border-border-soft rounded-xl px-4 pt-6 pb-2 text-text outline-none focus:border-navy-light focus:bg-white transition-colors placeholder:text-transparent";
-
-  return (
-    <div className="relative">
-      {as === "textarea" ? (
-        <textarea id={id} required={required} placeholder=" " rows={5} className={`${className} resize-none`} />
-      ) : (
-        <input id={id} type={type} required={required} placeholder=" " className={className} />
-      )}
-      <label
-        htmlFor={id}
-        className="pointer-events-none absolute left-4 top-2 text-[10px] uppercase tracking-[0.18em] font-semibold text-muted transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:tracking-normal peer-placeholder-shown:font-normal peer-placeholder-shown:normal-case peer-focus:top-2 peer-focus:text-[10px] peer-focus:uppercase peer-focus:tracking-[0.18em] peer-focus:font-semibold peer-focus:text-navy-light"
-      >
-        {label}
-      </label>
-    </div>
-  );
-}
-
-function SelectField({ id, label, children }: { id: string; label: string; children: React.ReactNode }) {
-  return (
-    <div className="relative">
-      <select
-        id={id}
-        defaultValue=""
-        className="w-full appearance-none bg-paper-warm border border-border-soft rounded-xl px-4 pt-6 pb-2 text-text outline-none focus:border-navy-light focus:bg-white transition-colors cursor-pointer"
-      >
-        {children}
-      </select>
-      <label
-        htmlFor={id}
-        className="absolute left-4 top-2 text-[10px] uppercase tracking-[0.18em] font-semibold text-muted"
-      >
-        {label}
-      </label>
-      <span aria-hidden className="absolute right-4 top-1/2 -translate-y-1/2 text-navy/50 text-xs pointer-events-none">▾</span>
-    </div>
   );
 }
 
@@ -275,17 +155,17 @@ function OfficeCard({
       href={href}
       target="_blank"
       rel="noopener"
-      className="group flex gap-4 bg-white rounded-2xl border border-border-soft p-5 hover:border-navy-light/40 hover:shadow-[var(--shadow-sm-soft)] transition-all"
+      className="group flex gap-4 bg-white rounded-2xl border border-border-soft p-6 hover:border-navy-light/40 hover:shadow-[var(--shadow-sm-soft)] transition-all"
     >
-      <span className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">{flag}</span>
+      <span className="w-14 h-14 rounded-full overflow-hidden flex-shrink-0">{flag}</span>
       <div className="flex-1 min-w-0">
-        <div className="font-serif text-navy text-[18px]">{city}</div>
+        <div className="font-serif text-navy text-[20px]">{city}</div>
         <div className="text-[10px] uppercase tracking-[0.22em] font-semibold text-navy-light mt-0.5">{role}</div>
-        <p className="text-xs text-text/70 leading-relaxed mt-2">
+        <p className="text-sm text-text/75 leading-relaxed mt-2.5">
           <RichText html={addressKey} />
         </p>
         <div className="flex items-center justify-between mt-3 pt-3 border-t border-border-soft">
-          <span className="text-xs text-muted font-medium">{phone}</span>
+          <span className="text-sm text-muted font-medium">{phone}</span>
           <span aria-hidden className="text-navy/50 group-hover:text-navy transition-all duration-300 group-hover:translate-x-1">→</span>
         </div>
       </div>
