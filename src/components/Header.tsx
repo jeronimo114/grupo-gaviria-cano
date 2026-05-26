@@ -74,7 +74,7 @@ export function Header() {
             alt="Grupo Gaviria Cano"
             width={400}
             height={156}
-            className="h-10 md:h-12 w-auto opacity-95 group-hover:opacity-100 transition-opacity"
+            className="h-14 md:h-16 w-auto opacity-95 group-hover:opacity-100 transition-opacity"
             priority
           />
         </Link>
