@@ -18,6 +18,19 @@ const serif = Source_Serif_4({
   style: ["normal", "italic"],
 });
 
+// Resolve canonical site URL: explicit override → Vercel production alias →
+// Vercel preview deploy URL → fallback to canonical domain.
+// Once `grupogaviriacano.com` points at Vercel, VERCEL_PROJECT_PRODUCTION_URL
+// will be that domain automatically; until then it's the .vercel.app alias,
+// which keeps OG image links resolvable instead of 404ing on the old WP host.
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : null) ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null) ||
+  "https://grupogaviriacano.com";
+
 export const metadata: Metadata = {
   title: {
     default: "Grupo Gaviria Cano — Casa matriz de inversiones",
@@ -25,7 +38,7 @@ export const metadata: Metadata = {
   },
   description:
     "Casa matriz de inversiones en comunicaciones, consultoría y asesoría a empresas privadas y gobiernos. Medellín · Doral.",
-  metadataBase: new URL("https://grupogaviriacano.com"),
+  metadataBase: new URL(SITE_URL),
   openGraph: {
     title: "Grupo Gaviria Cano",
     description:
