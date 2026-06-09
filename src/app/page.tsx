@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { CompaniesBanner } from "@/components/CompaniesBanner";
 import { Intro } from "@/components/Intro";
 import { Stats } from "@/components/Stats";
+import { MarketTicker } from "@/components/MarketTicker";
 import { Empresas } from "@/components/Empresas";
 import { Audiences } from "@/components/Audiences";
 import { Compromisos } from "@/components/Compromisos";
@@ -21,6 +22,7 @@ export default function Home() {
         <CompaniesBanner />
         <Intro />
         <Stats />
+        <MarketTicker />
         <Empresas />
         <Audiences />
         <Compromisos />

@@ -11,12 +11,13 @@ type Article = {
   title: TranslationKey;
   date: TranslationKey;
   pattern: "waves" | "circles" | "chart";
+  href: string;
 };
 
 const ARTICLES: Article[] = [
-  { cat: "news.1.cat", title: "news.1.title", date: "news.1.date", pattern: "waves" },
-  { cat: "news.2.cat", title: "news.2.title", date: "news.2.date", pattern: "circles" },
-  { cat: "news.3.cat", title: "news.3.title", date: "news.3.date", pattern: "chart" },
+  { cat: "news.1.cat", title: "news.1.title", date: "news.1.date", pattern: "waves", href: "https://360radio.com.co/maria-emma-jimenez-asume-la-direccion-de-360-radio/217638/" },
+  { cat: "news.2.cat", title: "news.2.title", date: "news.2.date", pattern: "circles", href: "https://360radio.com.co/las-empresas-latinoamericanas-que-lideran-la-expansion-regional-segun-el-bid/222092/" },
+  { cat: "news.3.cat", title: "news.3.title", date: "news.3.date", pattern: "chart", href: "https://360radio.com.co/el-mercado-accionario-sube-un-135-tras-el-cierre-de-jornada-electoral/222079/" },
 ];
 
 function Pattern({ kind }: { kind: Article["pattern"] }) {
@@ -91,8 +92,11 @@ export function News() {
 
         <RevealStagger className="grid grid-cols-1 md:grid-cols-3 gap-6" stagger={0.1}>
           {ARTICLES.map((a, i) => (
-            <motion.article
+            <motion.a
               key={i}
+              href={a.href}
+              target="_blank"
+              rel="noopener noreferrer"
               variants={{
                 hidden: { opacity: 0, y: 30 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
@@ -117,7 +121,7 @@ export function News() {
                 </h3>
                 <div className="text-xs text-muted">{t(a.date)}</div>
               </div>
-            </motion.article>
+            </motion.a>
           ))}
         </RevealStagger>
       </div>

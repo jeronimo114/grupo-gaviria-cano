@@ -36,6 +36,7 @@ export type TranslationKey =
   | "values.2.num" | "values.2.title" | "values.2.desc"
   | "values.3.num" | "values.3.title" | "values.3.desc"
   | "values.4.num" | "values.4.title" | "values.4.desc"
+  | "market.eyebrow" | "market.title" | "market.note"
   | "news.eyebrow" | "news.title" | "news.viewAll"
   | "news.1.cat" | "news.1.title" | "news.1.date"
   | "news.2.cat" | "news.2.title" | "news.2.date"
@@ -206,21 +207,25 @@ export const TRANSLATIONS: Record<Lang, Record<TranslationKey, string>> = {
     "values.4.desc":
       "Somos fieles a nuestros aliados. Buscamos generar relaciones recíprocas, sostenidas y de largo plazo.",
 
+    "market.eyebrow": "Datos del mercado",
+    "market.title": "El estado de los mercados, <em>en tiempo real</em>.",
+    "market.note": "Cotizaciones de la bolsa de Estados Unidos. Datos del mercado por TradingView.",
+
     "news.eyebrow": "Últimas noticias",
     "news.title": "Lo que está pasando en el <em>grupo</em>.",
     "news.viewAll": "Ver todas",
-    "news.1.cat": "Inversiones",
+    "news.1.cat": "360 · Medios",
     "news.1.title":
-      "Grupo Gaviria Cano expande presencia internacional con nuevas operaciones desde Doral, FL",
+      "María Emma Jiménez asume la dirección de 360 Radio",
     "news.1.date": "Abril · 2026",
-    "news.2.cat": "360 · Medios",
+    "news.2.cat": "Empresas",
     "news.2.title":
-      "360 Colombia supera 18 millones de impresiones en redes durante el primer trimestre del año",
-    "news.2.date": "Marzo · 2026",
-    "news.3.cat": "Sostenibilidad",
+      "Las empresas latinoamericanas que lideran la expansión regional, según el BID",
+    "news.2.date": "Junio · 2026",
+    "news.3.cat": "Mercados",
     "news.3.title":
-      "Sexto año del programa de sostenibilidad: balance de eficiencia operativa en empresas del grupo",
-    "news.3.date": "Febrero · 2026",
+      "El mercado accionario sube un 1,35% tras el cierre de la jornada electoral",
+    "news.3.date": "Junio · 2026",
 
     "careers.eyebrow": "Personas",
     "careers.title": "Crece, aprende, <em>aporta</em>.",
@@ -455,21 +460,25 @@ export const TRANSLATIONS: Record<Lang, Record<TranslationKey, string>> = {
     "values.4.desc":
       "We are loyal to our partners. We seek to build reciprocal, sustained, long-term relationships.",
 
+    "market.eyebrow": "Market data",
+    "market.title": "The state of the markets, <em>in real time</em>.",
+    "market.note": "U.S. stock exchange quotes. Market data by TradingView.",
+
     "news.eyebrow": "Latest news",
     "news.title": "What's happening across the <em>group</em>.",
     "news.viewAll": "View all",
-    "news.1.cat": "Investments",
+    "news.1.cat": "360 · Media",
     "news.1.title":
-      "Grupo Gaviria Cano expands international presence with new operations from Doral, FL",
+      "María Emma Jiménez takes over as director of 360 Radio",
     "news.1.date": "April · 2026",
-    "news.2.cat": "360 · Media",
+    "news.2.cat": "Companies",
     "news.2.title":
-      "360 Colombia surpasses 18 million social media impressions in the year's first quarter",
-    "news.2.date": "March · 2026",
-    "news.3.cat": "Sustainability",
+      "The Latin American companies leading regional expansion, according to the IDB",
+    "news.2.date": "June · 2026",
+    "news.3.cat": "Markets",
     "news.3.title":
-      "Sixth year of the sustainability program: an operational efficiency review across the group's companies",
-    "news.3.date": "February · 2026",
+      "The stock market rises 1.35% after the close of the electoral day",
+    "news.3.date": "June · 2026",
 
     "careers.eyebrow": "People",
     "careers.title": "Grow, learn, <em>contribute</em>.",
